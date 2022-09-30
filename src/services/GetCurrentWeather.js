@@ -4,6 +4,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 const getCurrentWeather = async (locationKey, unit) => {
   const URL = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${API_KEY}&details=true`;
+
   const TODAY_URL = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${API_KEY}&metric=${
     unit === "metric" ? true : false
   }`;

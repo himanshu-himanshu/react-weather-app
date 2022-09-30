@@ -11,7 +11,7 @@ function FutureForecasts({ weather }) {
       </div>
       <div className="flex flex-row justify-around w-1/2">
         <img
-          src={require(`../assests/${weather.Day.Icon}.png`)}
+          src={require(`../assests/icons/${weather.Day.Icon}.png`)}
           alt="icon"
           className="w-12 md:w-12"
         />

@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 .night {
-    background-image: url(./assests/90735-animated-landscape-2560x1440-wallpaper.png);
+    background-image: url(./assests//backgrounds/nightBackground.png);
     background-position: center;
     background-size: cover;
     filter: brightness(90%);
@@ -13,7 +13,7 @@
 }
 
 .day {
-    background-image: url(./assests/311377-minimalist-mountain-wallpaper-hd-inspirational-minimalism-birds.jpg);
+    background-image: url(./assests/backgrounds/dayBackground.jpg);
     background-position: center;
     background-size: cover;
     filter: brightness(90%);

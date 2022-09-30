@@ -28,7 +28,7 @@ const CurrentWeather = ({ weather, unit, location }) => {
         <div className="flex items-center space-x-6 p-2">
           <div className="flex flex-col items-center">
             <img
-              src={require(`../assests/${WeatherIcon}.png`)}
+              src={require(`../assests/icons/${WeatherIcon}.png`)}
               alt="icon"
               className="w-24 md:w-32"
             />
