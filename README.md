@@ -1,30 +1,30 @@
 # About installation
 
->Navigate to the directory of your choice in which you would like to clone the repository
+#### Navigate to the directory of your choice in which you would like to clone the repository
 
 ```
 $ cd directory-name
 ```
 
->>Inside the directory run
+#### Inside the directory run
 
 ```
 $ git clone https://github.com/himanshu-himanshu/react-weather-app.git
 ```
 
->>>Change the directory using
+#### Change the directory using
 
 ```
 $ cd react-weather-app
 ```
 
->>>>Install the dependencies using
+#### Install the dependencies using
 
 ```
 $ npm install
 ```
 
->>>>>Start the project
+#### Start the project
 
 ```
 $ npm start
