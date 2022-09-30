@@ -76,8 +76,8 @@ const CurrentWeather = ({ weather, unit, location }) => {
         </div>
       </div>
 
-      <div className="bg-black text-gray-100 opacity-70 w-full rounded-md p-4 md:p-6">
-        <div className="flex space-x-4 md:space-x-12 lg:space-x-16 justify-around text-lg sm:text-xl py-2">
+      <div className="bg-black text-gray-100 opacity-70 w-full rounded-md p-2">
+        <div className="flex flex-col space-y-2 text-lg sm:text-xl py-2 ">
           {DailyForecasts.slice(1).map((forecast) => (
             <FutureForecasts weather={forecast} />
           ))}

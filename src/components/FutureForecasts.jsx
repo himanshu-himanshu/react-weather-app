@@ -3,20 +3,20 @@ import moment from "moment-timezone";
 
 function FutureForecasts({ weather }) {
   return (
-    <div className="flex flex-col justify-center items-center space-y-2">
-      <p className="text-sm">
-        {moment.parseZone(weather.Date).format("D MMMM")}
-      </p>
-      <div className="flex flex-col w-full justify-center items-center text-lg">
+    <div className="flex flex-row justify-between w-full px-4 py-2">
+      <div className="w-1/2">
+        <p className="text-md">
+          {moment.parseZone(weather.Date).format("MMMM, D")}
+        </p>
+      </div>
+      <div className="flex flex-row justify-around w-1/2">
         <img
           src={require(`../assests/${weather.Day.Icon}.png`)}
           alt="icon"
           className="w-12 md:w-12"
         />
-        <div className="flex space-x-2">
-          <p>{weather.Temperature.Minimum.Value.toFixed()}&#176;</p>
-          <p>{weather.Temperature.Maximum.Value.toFixed()}&#176;</p>
-        </div>
+        <p> &darr; {weather.Temperature.Minimum.Value.toFixed()}&#176;</p>
+        <p> &uarr; {weather.Temperature.Maximum.Value.toFixed()}&#176;</p>
       </div>
     </div>
   );
