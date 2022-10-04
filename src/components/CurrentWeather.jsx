@@ -45,7 +45,6 @@ const CurrentWeather = ({ weather, unit, location }) => {
           </div>
         </div>
       </div>
-
       <div className=" bg-black text-gray-100 opacity-80 w-full rounded-md p-2 sm:p-4 md:p-6">
         <div className="flex space-x-2 sm:space-x-8 lg:space-x-18 justify-center text-sm sm:text-lg lg:text-xl p-2">
           <span className="detail-span">
@@ -75,9 +74,11 @@ const CurrentWeather = ({ weather, unit, location }) => {
           </span>
         </div>
       </div>
-
-      <div className="bg-black text-gray-100 opacity-70 w-full rounded-md p-2">
-        <div className="flex flex-col space-y-2 text-lg sm:text-xl py-2 ">
+      <div className="bg-gray-100 text-black rounded opacity-50">
+        <h1 className="p-4 text-2xl md:text-4xl">Next 4 Days</h1>
+      </div>
+      <div className="bg-black text-gray-100 opacity-80 w-full rounded-md p-4">
+        <div className="flex flex-col space-y-2 text-lg sm:text-xl py-2">
           {DailyForecasts.slice(1).map((forecast) => (
             <FutureForecasts weather={forecast} />
           ))}
