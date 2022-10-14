@@ -1,4 +1,4 @@
-<h1 align="center">React Weather App</h1>
+<h1 align="center">React Weather App 🌦</h1>
 ## About installation
 
 #### Navigate to the directory of your choice in which you would like to clone the repository
