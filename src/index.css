@@ -12,12 +12,20 @@
     @apply flex flex-col space-y-6 p-2 sm:p-4 min-h-screen w-full py-12;
 }
 
+.flex-center {
+    @apply flex justify-center items-center
+}
+
 .day {
     background-image: url(./assests/backgrounds/dayBackground.jpg);
     background-position: center;
     background-size: cover;
     filter: brightness(90%);
     @apply flex flex-col space-y-6 p-2 sm:p-4 min-h-screen w-full py-12;
+}
+
+.outer-div {
+    @apply container max-w-2xl mx-auto flex flex-col space-y-6 p-2 items-center justify-center
 }
 
 .detail-span {

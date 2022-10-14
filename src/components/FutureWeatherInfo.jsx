@@ -3,7 +3,7 @@ import moment from "moment-timezone";
 
 function FutureForecasts({ weather }) {
   return (
-    <div className="flex flex-row justify-between w-full px-4 py-6 border text-gray-100 rounded">
+    <div className="flex flex-row justify-between w-full px-4 py-6 border border-gray-600 text-gray-100 rounded">
       <div className="w-1/3 md:w-1/2">
         <p className="text-md">
           {moment.parseZone(weather.Date).format("MMMM, D")}

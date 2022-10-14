@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-import SearchBar from "./components/SearchBar";
+import SearchBar from "./components/layout/SearchBar";
 import CurrentWeather from "./components/CurrentWeather";
-import Footer from "./components/Footer";
-
+import Footer from "./components/layout/Footer";
 import getLocationkey from "./services/GetLocationKey";
 import getCurrentWeather from "./services/GetCurrentWeather";
+import FutureWeather from "./components/FutureWeather";
 
 function App() {
   const [data, setData] = useState(null);
@@ -43,10 +43,13 @@ function App() {
         unit={unit}
       />
 
-      {/* Weather Component */}
+      {/* Current Weather Component */}
       {data && (
         <CurrentWeather weather={data} location={location} unit={unit} />
       )}
+
+      {/* Future Weather Component */}
+      {data && <FutureWeather weather={data} />}
 
       {/* Footer Component */}
       <Footer />
