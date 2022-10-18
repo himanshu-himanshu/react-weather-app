@@ -4,8 +4,9 @@ import SearchBar from "./components/layout/SearchBar";
 import CurrentWeather from "./components/CurrentWeather";
 import Footer from "./components/layout/Footer";
 import getLocationkey from "./services/GetLocationKey";
-import getCurrentWeather from "./services/GetCurrentWeather";
+import getWeather from "./services/GetWeather";
 import FutureWeather from "./components/FutureWeather";
+import Spinner from "./components/Spinner";
 
 function App() {
   const [data, setData] = useState(null);
@@ -13,17 +14,22 @@ function App() {
   const [location, setLocation] = useState(null);
   const [unit, setUnit] = useState("metric");
   const [className, setClassName] = useState("night");
+  const [loading, setLoading] = useState("false");
 
   useEffect(() => {
+    setLoading(true);
     const fetchWeatherData = async () => {
       const locationKey = await getLocationkey(city);
       setCity(locationKey.EnglishName);
       setLocation(locationKey);
-      const weatherData = await getCurrentWeather(locationKey.Key, unit);
+      const weatherData = await getWeather(locationKey.Key, unit);
       setData(weatherData);
       setClassName(weatherData.IsDayTime ? "day" : "night");
+      setLoading(false);
     };
-    fetchWeatherData();
+    setTimeout(() => {
+      fetchWeatherData();
+    }, 800);
   }, [city, unit]);
 
   const handleInputSearch = (city) => {
@@ -34,6 +40,10 @@ function App() {
     unit === "metric" ? setUnit("imperial") : setUnit("metric");
   };
 
+  /**
+   * TODO: Enable using current location
+   */
+
   return (
     <div className={className}>
       {/* Search Bar Component */}
@@ -43,16 +53,20 @@ function App() {
         unit={unit}
       />
 
-      {/* Current Weather Component */}
-      {data && (
-        <CurrentWeather weather={data} location={location} unit={unit} />
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          {/* Current Weather Component */}
+          <CurrentWeather weather={data} location={location} unit={unit} />
+
+          {/* Future Weather Component */}
+          <FutureWeather weather={data} />
+
+          {/* Footer Component */}
+          <Footer />
+        </>
       )}
-
-      {/* Future Weather Component */}
-      {data && <FutureWeather weather={data} />}
-
-      {/* Footer Component */}
-      <Footer />
     </div>
   );
 }

@@ -4,6 +4,9 @@ import { BsSearch } from "react-icons/bs";
 const SearchBar = ({ handleInputSearch, handleUnit, unit }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const handleSearch = () => {
+    if (searchTerm == "") {
+      return alert("Inputs cannot be empty!");
+    }
     handleInputSearch(searchTerm);
     setSearchTerm("");
   };

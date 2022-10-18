@@ -2,6 +2,7 @@ import React from "react";
 import moment from "moment-timezone";
 
 function FutureForecasts({ weather }) {
+  const { Maximum, Minimum } = weather.Temperature;
   return (
     <div className="flex flex-row justify-between w-full px-4 py-6 border border-gray-600 text-gray-100 rounded">
       <div className="w-1/3 md:w-1/2">
@@ -15,8 +16,8 @@ function FutureForecasts({ weather }) {
           alt="icon"
           className="w-12 md:w-12"
         />
-        <p> &uarr; {weather.Temperature.Maximum.Value.toFixed()}&#176;</p>
-        <p> &darr; {weather.Temperature.Minimum.Value.toFixed()}&#176;</p>
+        <p> &uarr; {Maximum.Value.toFixed()}&#176;</p>
+        <p> &darr; {Minimum.Value.toFixed()}&#176;</p>
       </div>
     </div>
   );
