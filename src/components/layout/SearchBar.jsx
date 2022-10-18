@@ -17,7 +17,7 @@ const SearchBar = ({ handleInputSearch, handleUnit, unit }) => {
   return (
     <>
       <div className="container max-w-4xl mx-auto text-white flex flex-row justify-evenly sm:justify-between p-2 md:p-4 bg-black opacity-80 rounded-md items-center">
-        <div className="flex space-x-2 md:space-x-4">
+        <div className="flex space-x-2 md:space-x-4 font-Raleway">
           <input
             type="text"
             placeholder="Enter city name"

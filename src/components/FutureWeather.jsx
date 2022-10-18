@@ -5,7 +5,7 @@ function FutureWeather({ weather }) {
   const { DailyForecasts } = weather;
 
   return (
-    <div className="outer-div">
+    <div className="outer-div font-Raleway">
       <h1 className="bg-gray-100/70 p-4 text-2xl md:text-4xl text-gray-700">
         Future Forecasts
       </h1>

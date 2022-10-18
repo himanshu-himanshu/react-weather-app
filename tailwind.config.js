@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Raleway: ["Raleway", "sans-serif"],
+        Arizonia: ["Arizonia", "sans-serif"],
       },
     },
   },

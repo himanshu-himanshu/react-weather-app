@@ -15,7 +15,7 @@ const CurrentWeather = ({ weather, unit, location }) => {
   } = weather;
 
   return (
-    <div className="outer-div">
+    <div className="outer-div font-Raleway">
       {/** Today Weather Component */}
       <CurrentWeatherCity
         location={location}
