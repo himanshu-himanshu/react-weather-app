@@ -7,7 +7,9 @@ const Footer = () => {
   return (
     <div className="bg-gray-900 opacity-[95%] container max-w-4xl mx-auto text-white flex flex-col space-y-8 justify-between py-4 px-12 rounded-md items-center">
       <div className="w-full flex flex-row justify-between items-center">
-        <h1 className="font-Arizonia text-5xl font-bold">Chillyfy</h1>
+        <h1 className="font-Arizonia text-5xl font-bold tracking-wider">
+          Chillyfy
+        </h1>
         <div className="flex flex-row space-x-4">
           <FaReact className="text-2xl" />
           <SiTailwindcss className="text-2xl" />

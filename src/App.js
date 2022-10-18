@@ -6,7 +6,7 @@ import Footer from "./components/layout/Footer";
 import getLocationkey from "./services/GetLocationKey";
 import getWeather from "./services/GetWeather";
 import FutureWeather from "./components/FutureWeather";
-import Spinner from "./components/Spinner";
+import Spinner from "./components/Spinner/Spinner";
 
 function App() {
   const [data, setData] = useState(null);
