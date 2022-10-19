@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const BASE_URL = "http://dataservice.accuweather.com/";
+const BASE_URL = "https://dataservice.accuweather.com/";
 
 const getCurrentWeather = async (locationKey, unit) => {
   const URL = `${BASE_URL}currentconditions/v1/${locationKey}?apikey=${API_KEY}&details=true`;

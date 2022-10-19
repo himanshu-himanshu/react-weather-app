@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 const SearchBar = ({ handleInputSearch, handleUnit, unit }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const handleSearch = () => {
-    if (searchTerm == "" || searchTerm == " ") {
+    if (searchTerm === "" || searchTerm === " ") {
       return toast.warning("City name required!", { icon: "🚀" });
     }
     handleInputSearch(searchTerm);
