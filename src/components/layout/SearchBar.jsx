@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { BsSearch } from "react-icons/bs";
+import { toast } from "react-toastify";
 
 const SearchBar = ({ handleInputSearch, handleUnit, unit }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const handleSearch = () => {
-    if (searchTerm == "") {
-      return alert("Inputs cannot be empty!");
+    if (searchTerm == "" || searchTerm == " ") {
+      return toast.warning("City name required!", { icon: "🚀" });
     }
     handleInputSearch(searchTerm);
     setSearchTerm("");

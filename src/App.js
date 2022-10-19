@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 import SearchBar from "./components/layout/SearchBar";
 import CurrentWeather from "./components/CurrentWeather";
@@ -36,12 +35,12 @@ function App() {
               setLoading(false);
             })
             .catch((err) => {
-              notifyErrors("Not founded!");
+              toast.error("Not founded!");
               setLoading(false);
             })
         )
         .catch((err) => {
-          notifyErrors("Not founded!");
+          toast.error("Not founded!");
           setLoading(false);
         });
     };
@@ -62,7 +61,7 @@ function App() {
    * TODO: Enable using current location
    */
 
-  const notifyErrors = (msg) => toast.error(msg, { icon: "💣" });
+  // const notifyErrors = (msg) => toast.error(msg, { icon: "💣" });
 
   return (
     <div className={className}>
@@ -86,14 +85,7 @@ function App() {
           )}
         </>
       )}
-      {!data && <ErrorPage />}
-      <ToastContainer
-        hideProgressBar={true}
-        theme="colored"
-        position="top-center"
-        autoClose={1500}
-        limit={1}
-      />
+      {!data && !loading && <ErrorPage />}
     </div>
   );
 }
