@@ -26,6 +26,7 @@ function App() {
           setLoading(true);
           setCity(res.EnglishName);
           setLocation(res);
+          console.log(res);
         })
         .then(
           getWeather(location.Key, unit)
