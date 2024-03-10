@@ -11,7 +11,7 @@ root.render(
     <ToastContainer
       hideProgressBar={true}
       theme="colored"
-      position="top-center"
+      position="top-right"
       autoClose={1500}
       limit={1}
     />

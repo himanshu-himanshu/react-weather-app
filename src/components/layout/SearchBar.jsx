@@ -4,9 +4,11 @@ import { toast } from "react-toastify";
 
 const SearchBar = ({ handleInputSearch, handleUnit, unit }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  let timeoutId;
+
   const handleSearch = () => {
     if (searchTerm === "" || searchTerm === " ") {
-      return toast.warning("City name required!", { icon: "🚀" });
+      return toast.error("Please enter city name!", { icon: "⚠︎" });
     }
     handleInputSearch(searchTerm);
     setSearchTerm("");
@@ -14,8 +16,21 @@ const SearchBar = ({ handleInputSearch, handleUnit, unit }) => {
   const handleUnitChange = () => {
     handleUnit();
   };
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    const regex = /^[a-zA-Z\s]*$/; // Regular expression to match only alphabets and spaces
 
-  const popularCities = ["Delhi", "Dubai", "Toronto"];
+    clearTimeout(timeoutId); // Clear existing timeout
+
+    if (!regex.test(inputValue)) {
+      // If input contains non-alphabetic characters
+      timeoutId = setTimeout(() => {
+        toast.error("Please enter only alphabets!", { icon: "⚠︎" });
+      }, 1000); // Delay for 1000 milliseconds (1 second)
+    } else {
+      setSearchTerm(inputValue);
+    }
+  };
 
   return (
     <>
@@ -26,7 +41,7 @@ const SearchBar = ({ handleInputSearch, handleUnit, unit }) => {
             placeholder="Enter city name"
             required
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={handleInputChange}
             className="bg-transparent border-none focus:outline-none rounded-sm md:p-2 text-md md:text-lg focus:border-none capitalize placeholder:text-center text-center shadow-xl w-2/3"
           />
           <button
@@ -38,19 +53,6 @@ const SearchBar = ({ handleInputSearch, handleUnit, unit }) => {
         </div>
 
         <div className="flex flex-row space-x-12 w-1/2 justify-end">
-          {/* <div className="hidden md:flex md:items-center flex-row space-x-8 text-gray-200 font-light">
-            {popularCities.map((city, index) => {
-              return (
-                <h1
-                  onClick={() => handleInputSearch(city.toLowerCase())}
-                  className="hover:cursor-pointer hover:text-sky-500"
-                  key={index}
-                >
-                  {city}
-                </h1>
-              );
-            })}
-          </div> */}
           <button
             className="bg-blue-800 px-6 py-2 text-lg shadow-2xl rounded hover:bg-blue-900 duration-200"
             onClick={() => handleUnitChange()}

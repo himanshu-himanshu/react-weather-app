@@ -8,6 +8,7 @@
 .night {
     background-image: url(./assests//backgrounds/nightBackground.png);
     background-position: center;
+    background-attachment: fixed;
     background-size: cover;
     filter: brightness(90%);
     @apply flex flex-col space-y-6 p-2 sm:p-4 min-h-screen w-full py-12;

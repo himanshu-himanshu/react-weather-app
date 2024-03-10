@@ -21,33 +21,25 @@ function App() {
   useEffect(() => {
     setLoading(true);
     const fetchWeatherData = async () => {
-      getLocationkey(city)
-        .then((res) => {
-          setLoading(true);
-          setCity(res.EnglishName);
-          setLocation(res);
-          console.log(res);
-        })
-        .then(
-          getWeather(location.Key, unit)
-            .then((res) => {
-              setData(res);
-              setClassName(res.IsDayTime ? "day" : "night");
-              setLoading(false);
-            })
-            .catch((err) => {
-              toast.error("Not founded!");
-              setLoading(false);
-            })
-        )
-        .catch((err) => {
-          toast.error("Not founded!");
-          setLoading(false);
-        });
+      try {
+        const locationKey = await getLocationkey(city);
+        setCity(locationKey.EnglishName);
+        setLocation(locationKey);
+
+        const weatherData = await getWeather(locationKey.Key, unit);
+        setData(weatherData);
+        setClassName(weatherData.IsDayTime ? "day" : "night");
+      } catch (error) {
+        toast.error("Weather data not found!", error);
+      } finally {
+        setLoading(false);
+      }
     };
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       fetchWeatherData();
     }, 600);
+
+    return () => clearTimeout(timer);
   }, [city, unit]);
 
   const handleInputSearch = (city) => {
@@ -57,12 +49,6 @@ function App() {
   const handleUnit = () => {
     unit === "metric" ? setUnit("imperial") : setUnit("metric");
   };
-
-  /**
-   * TODO: Enable using current location
-   */
-
-  // const notifyErrors = (msg) => toast.error(msg, { icon: "💣" });
 
   return (
     <div className={className}>
